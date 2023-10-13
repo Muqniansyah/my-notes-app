@@ -1,5 +1,5 @@
 :root {
-  --black: #f48a29;
+  --black: #131211;
   --primary: #e8f354;
   --lato: "Lato", sans-serif;
   --martian: "Martian Mono", monospace;
@@ -19,182 +19,186 @@ body {
   color: white;
 }
 
-input,
-textarea {
-  padding: 12px;
-  margin: 12px 0;
-  font-family: "Inter", sans-serif;
-  background-color: transparent;
-  color: white;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #aaa;
-  font-weight: bold;
-}
-
-.note-app__header {
+/* component search */
+.search_section {
+  background-color: var(--primary);
+  /* margin: 16px 0; */
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 4px 16px;
-  border-bottom: 1px solid #aaa;
+  padding: 16px;
+  border: 2px solid rgb(255, 251, 251);
+  border-radius: 10px;
 }
 
-.note-app__header h1 {
-  margin: 8px 0;
-  flex: 1;
+.search_section h2 {
+  color: var(--black);
+}
+
+.search_section form input {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.search_section form button {
+  background-color: var(--black);
+  color: white;
+  padding: 10px;
+  margin-left: 10px;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search_section form button:hover {
+  background-color: white;
+  color: var(--black);
+}
+
+/* component input */
+.input_section {
+  width: 50rem;
+  margin-top: 20px;
+  padding: 16px;
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(255, 251, 251);
+  border-radius: 10px;
+}
+
+.input_section h2 {
+  text-align: center;
   color: white;
 }
 
-.note-app__body {
-  max-width: 1000px;
-  margin: 16px auto;
-  padding: 12px;
+.input_section form .input #notifikasiSisaKarakter {
+  visibility: hidden;
 }
 
-.note-app__body h2 {
-  font-weight: normal;
-  margin: 16px 0;
+.input_section form .input {
+  background-color: var(--primary);
+  border: 1px solid #eee;
+  padding: 2rem;
+  margin: 20px 0;
 }
 
-.note-input {
-  margin: 0 auto;
-  max-width: 500px;
-  margin-bottom: 48px;
+.input_section form button {
+  background-color: var(--primary);
+  font-family: var(--lato);
+  font-size: 20px;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  width: 50%;
+  padding: 8px;
+  cursor: pointer;
+  margin-left: 25%;
 }
 
-.note-input input,
-.note-input textarea {
-  display: block;
-  width: 100%;
+.input_section form button:hover {
+  background: white;
+  color: var(--primary);
 }
 
-.note-input__title {
+.input_section form .input label {
+  color: black;
   font-weight: bold;
+  padding: 20px;
 }
 
-.note-input__title__char-limit {
-  font-size: 14px;
-  text-align: right;
-  color: #aaa;
-}
-
-.note-input__body {
-  min-height: 175px;
-}
-
-.note-input button {
+.input_section form .input input {
   display: block;
   width: 100%;
   padding: 8px;
-  background-color: transparent;
-  font-family: "Inter", sans-serif;
+  border-radius: 5px;
+}
+
+/* component catatan */
+.result {
+  background-color: var(--primary);
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.notes {
+  background-color: var(--black);
+  margin: 16px 0 0 0;
+  border: 2px solid rgb(255, 251, 251);
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.notes h2 {
   color: white;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
 }
 
-.notes-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: minmax(min-content, max-content);
-  gap: 16px;
-  margin-bottom: 48px;
+.notes .notes_list {
+  padding: 16px;
 }
 
-.notes-list__empty-message {
-  text-align: center;
-  color: #aaa;
-}
-
-.note-item {
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  overflow: hidden;
+.note_item {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 24px 0;
+  border: 1px dashed black;
+  padding: 16px;
+  border-radius: 8px;
 }
 
-.note-item__content {
-  padding: 12px;
-  flex: 1;
+.note_item .note-judul {
+  padding: 4px 0;
 }
 
-.note-item__title {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-bottom: 4px;
+.note_item .note-pesan {
+  padding-top: 20px;
+  font-weight: lighter;
 }
 
-.note-item__date {
-  font-size: 12px;
-  margin-bottom: 8px;
-  color: #aaa;
-}
-
-.note-item__body {
-  font-size: 14px;
-}
-
-.note-item__action {
-  display: flex;
-}
-
-.note-item__delete-button,
-.note-item__archive-button {
-  display: block;
-  width: 100%;
-  background-color: transparent;
+.delete {
+  width: 40px;
+  height: 40px;
+  background: url("../../public/icon/trash.svg");
+  background-size: contain;
+  margin-left: 16px;
+  margin-top: 20px;
   border: 0;
-  border-top: 1px solid #aaa;
-  padding: 8px 0;
-  font-family: "Inter", sans-serif;
-  font-weight: bold;
+  /* color: blue; */
+  /* border-radius: 4px; */
   cursor: pointer;
 }
 
-.note-item__delete-button {
-  border-right: 1px solid #aaa;
-  color: #ff5f52;
+.delete:hover {
+  background: url("../../public/icon/trash2.svg");
+  background-size: contain;
 }
 
-.note-item__archive-button {
-  color: #fff263;
-}
-
-.note-item__archive-button:hover {
-  color: #c49000;
-}
-
-.note-item__delete-button:hover {
-  color: #b00020;
-}
-
-@media only screen and (min-width: 500px) {
-  .notes-list {
-    grid-template-columns: 1fr 1fr;
+@media only screen and (max-width: 820px) {
+  .input_section {
+    width: 35rem;
   }
 }
 
-@media only screen and (min-width: 800px) {
-  .notes-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .note-search input {
-    min-width: 400px;
+@media only screen and (max-width: 600px) {
+  .input_section {
+    width: 30rem;
   }
 }
 
-@media only screen and (min-width: 800px) {
-  .notes-list {
-    grid-template-columns: repeat(4, 1fr);
+@media only screen and (max-width: 400px) {
+  .input_section {
+    width: 20rem;
+  }
+
+  .search_section {
+    background-color: var(--primary);
+    border-radius: 0;
+    width: 25rem;
+  }
+
+  .result {
+    width: 25rem;
   }
 }
