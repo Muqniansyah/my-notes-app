@@ -1,5 +1,4 @@
 import React from "react";
-import SubmitButton from "./button/SubmitButton";
 
 class NotesInput extends React.Component {
   constructor(props) {
@@ -8,27 +7,55 @@ class NotesInput extends React.Component {
     this.state = {
       title: "",
       body: "",
+      maxTitle: 50,
     };
+
+    this.onTitleChangeHandler = this.onTitleChangeHandler.bind(this);
+    this.onBodyChangeHandler = this.onBodyChangeHandler.bind(this);
+    this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
+  }
+
+  onTitleChangeHandler(event) {
+    const newTitle = event.target.value;
+    if (newTitle.length <= this.state.maxTitle) {
+      this.setState({
+        title: newTitle,
+      });
+    }
+  }
+
+  onBodyChangeHandler(event) {
+    this.setState(() => {
+      return {
+        body: event.target.value,
+      };
+    });
+  }
+
+  // submit event handler
+  onSubmitEventHandler(event) {
+    event.preventDefault();
+    this.props.addNote(this.state);
   }
 
   render() {
     return (
       <section className="input_section">
         <h2>Tambahkan Catatan</h2>
-        <form id="inputBook">
+        <form onSubmit={this.onSubmitEventHandler}>
           <div className="input">
             {/* input nama */}
             <label htmlFor="inputNoteTitle">Nama Catatan</label>
             <input
-              id="inputNoteTitle"
               type="text"
               required
               placeholder="Masukkan Nama Catatan"
-              maxlength="25"
+              value={this.state.title}
+              onChange={this.onTitleChangeHandler}
             />
-            <label id="notifikasiSisaKarakter">
-              Sisa karakter : <span id="sisaKarakter"></span>
-            </label>
+            <p>
+              Karakter Tersisa : {this.state.maxTitle - this.state.title.length}
+            </p>
           </div>
           <div className="input">
             {/* input pesan */}
@@ -36,16 +63,18 @@ class NotesInput extends React.Component {
             <br />
             <textarea
               name="pesan"
-              id="pesan"
               cols="50"
               rows="4"
               placeholder="Isi catatan anda disini"
+              value={this.state.body}
+              onChange={this.onBodyChangeHandler}
             ></textarea>
           </div>
-          <SubmitButton />
+          <button type="submit">Buat Catatan</button>
         </form>
       </section>
     );
   }
 }
+
 export default NotesInput;

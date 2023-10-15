@@ -1,37 +1,26 @@
 import React from "react";
-import NotesArsip from "./NotesArsip";
-import NotesActive from "./NotesActive";
-import { getInitialData } from "../utils/index";
+// import NoteList from "./NoteList";
 
-class NotesResult extends React.Component {
-  constructor(props) {
-    super(props);
+function NotesResult({ notes, arsip, moveData, onDelete }) {
+  return (
+    <div className="result">
+      <h2>Catatan Aktif</h2>
+      <NoteList
+        notes={notes}
+        moveData={moveData}
+        onDelete={onDelete}
+        text="arsip"
+      />
 
-    this.state = {
-      notes: getInitialData(),
-    };
-
-    this.onDeleteHandler = this.onDeleteHandler.bind(this);
-  }
-
-  // event hapus
-  onDeleteHandler(id) {
-    const { notes } = this.state;
-    const newNotes = this.state.notes.filter((note) => note.id !== id);
-    this.setState({ notes: newNotes });
-  }
-
-  render() {
-    const { notes } = this.state;
-    return (
-      <div className="result">
-        <NotesActive notes={this.state.notes} onDelete={this.onDeleteHandler} />
-        {notes.length === 0 && <p>Catatan tidak ada</p>}
-        <NotesArsip />
-        <p>Catatan tidak ada</p>
-      </div>
-    );
-  }
+      <h2>Arsip Catatan</h2>
+      <NoteList
+        notes={arsip}
+        moveData={moveData}
+        onDelete={onDelete}
+        text="active"
+      />
+    </div>
+  );
 }
 
 export default NotesResult;

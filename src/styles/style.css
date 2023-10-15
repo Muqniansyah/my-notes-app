@@ -157,6 +157,11 @@ body {
   font-weight: lighter;
 }
 
+.note_item .icon {
+  display: flex;
+  flex-direction: row;
+}
+
 .delete {
   width: 40px;
   height: 40px;
@@ -172,6 +177,24 @@ body {
 
 .delete:hover {
   background: url("../../public/icon/trash2.svg");
+  background-size: contain;
+}
+
+.arsip {
+  width: 40px;
+  height: 40px;
+  background: url("../../public/icon/undo.svg");
+  background-size: contain;
+  margin-left: 16px;
+  margin-top: 20px;
+  border: 0;
+  /* color: blue; */
+  /* border-radius: 4px; */
+  cursor: pointer;
+}
+
+.arsip:hover {
+  background: url("../../public/icon/undo2.svg");
   background-size: contain;
 }
 
