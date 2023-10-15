@@ -44,11 +44,24 @@ class NotesApp extends React.Component {
   }
 
   // event arsip
-  onMoveDataHandler({ id }) {
-    const notes = this.state.notes.map((note) =>
-      note.id === id ? (note.archived = !note.archived) : note
-    );
-    this.setState({ notes });
+  // onMoveDataHandler({ id }) {
+  //   const updateNotes = this.state.notes.map((note) =>
+  //     note.id === id ? { ...note, archived: !note.archived } : note
+  //   );
+  //   this.setState({ notes: updateNotes });
+  //   console.log(updateNotes);
+  // }
+
+  onMoveDataHandler(id) {
+    const updateNotes = this.state.notes
+      .filter((note) => note.id === id)
+      .map((note) => {
+        note.archived = !note.archived;
+      });
+    this.setState({
+      updateNotes,
+    });
+    console.log(updateNotes);
   }
 
   // event search
@@ -81,15 +94,15 @@ class NotesApp extends React.Component {
           <h2>Catatan Aktif</h2>
           <NoteList
             notes={activeNotes}
-            moveData={this.onMoveDataHandler}
             onDelete={this.onDeleteHandler}
+            moveData={this.onMoveDataHandler}
           />
 
           <h2>Arsip Catatan</h2>
           <NoteList
             notes={archivedNotes}
-            moveData={this.onMoveDataHandler}
             onDelete={this.onDeleteHandler}
+            moveData={this.onMoveDataHandler}
           />
         </div>
       </div>

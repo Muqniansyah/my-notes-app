@@ -65,6 +65,7 @@ class NotesInput extends React.Component {
               name="pesan"
               cols="50"
               rows="4"
+              required
               placeholder="Isi catatan anda disini"
               value={this.state.body}
               onChange={this.onBodyChangeHandler}

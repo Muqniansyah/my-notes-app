@@ -7,7 +7,6 @@ function NoteList({ notes, onDelete, moveData }) {
   } else {
     return (
       <section className="notes">
-        {/* <h2>Catatan Active</h2> */}
         <div className="notes_list">
           {notes.map((note) => (
             <NoteItem
