@@ -13,17 +13,34 @@
 }
 
 body {
-  /* font-family: 'Inter', sans-serif; */
   font-family: var(--lato);
   background-color: #202124;
   color: white;
 }
 
 .notes-judul {
-  text-align: center;
   margin-top: 40px;
-  font-size: 2rem;
   font-weight: lighter;
+  text-align: center;
+}
+
+.notes-judul span {
+  font-size: 2rem;
+  text-transform: uppercase;
+  animation: blink 2s linear infinite;
+  color: #fff;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* component search */
@@ -130,7 +147,7 @@ body {
   right: 0;
   width: 0%;
   height: 100%;
-  background: #6025de;
+  background: #9a91af;
   transition: 0.3s linear;
   z-index: -1;
 }
@@ -143,7 +160,7 @@ body {
 .input_section form button:hover {
   /* color: #444; */
   background: white;
-  color: var(--primary);
+  color: var(--black);
 }
 
 /* component catatan */
@@ -213,8 +230,6 @@ body {
   margin-left: 16px;
   margin-top: 20px;
   border: 0;
-  /* color: blue; */
-  /* border-radius: 4px; */
   cursor: pointer;
 }
 
@@ -231,8 +246,6 @@ body {
   margin-left: 16px;
   margin-top: 20px;
   border: 0;
-  /* color: blue; */
-  /* border-radius: 4px; */
   cursor: pointer;
 }
 

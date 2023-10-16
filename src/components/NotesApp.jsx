@@ -78,7 +78,9 @@ class NotesApp extends React.Component {
     });
     return (
       <div>
-        <h3 className="notes-judul">Notes App</h3>
+        <h3 className="notes-judul">
+          <span>Notes App</span>
+        </h3>
         <NotesInput addNote={this.onAddNoteHandler} />
         <SearchBar onSearch={this.onSearchHandler} />
         <div className="result">
