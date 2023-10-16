@@ -1,7 +1,7 @@
 import React from "react";
 
 function ArsipButton({ id, moveData }) {
-  return <button className="arsip" onClick={() => moveData(id)}></button>;
+  return <button className="btn-arsip" onClick={() => moveData(id)}></button>;
 }
 
 export default ArsipButton;

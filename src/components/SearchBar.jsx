@@ -3,9 +3,8 @@ import React from "react";
 function SearchBar({ search, onSearch }) {
   return (
     <section className="search_section">
-      <h2>Cari Catatan</h2>
-      <form id="searchNote">
-        <label htmlFor="searchNoteTitle"></label>
+      <h2 className="judul-note">Cari Catatan</h2>
+      <form>
         <input
           type="text"
           placeholder="Cari Catatan"

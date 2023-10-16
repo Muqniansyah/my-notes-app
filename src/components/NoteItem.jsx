@@ -9,7 +9,7 @@ function NoteItem({ title, body, createdAt, id, onDelete, moveData }) {
       <h3 className="note-judul">{title}</h3>
       <p className="note-date">{showFormattedDate(createdAt)}</p>
       <p className="note-pesan">{body}</p>
-      <div className="icon">
+      <div className="note-icon">
         <DeleteButton id={id} onDelete={onDelete} />
         <ArsipButton id={id} moveData={moveData} />
       </div>

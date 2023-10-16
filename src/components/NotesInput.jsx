@@ -43,7 +43,7 @@ class NotesInput extends React.Component {
       <section className="input_section">
         <h2>Tambahkan Catatan</h2>
         <form onSubmit={this.onSubmitEventHandler}>
-          <div className="input">
+          <div className="input-item">
             {/* input nama */}
             <label htmlFor="inputNoteTitle">Nama Catatan</label>
             <input
@@ -57,7 +57,7 @@ class NotesInput extends React.Component {
               Karakter Tersisa : {this.state.maxTitle - this.state.title.length}
             </p>
           </div>
-          <div className="input">
+          <div className="input-item">
             {/* input pesan */}
             <label htmlFor="pesan">Isi Catatan</label>
             <br />

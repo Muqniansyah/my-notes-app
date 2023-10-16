@@ -3,10 +3,10 @@ import NoteItem from "./NoteItem";
 
 function NoteList({ notes, onDelete, moveData }) {
   if (notes.length === 0) {
-    return <p>catatan tidak ada</p>;
+    return <p className="pesan-notfind">catatan tidak ada</p>;
   } else {
     return (
-      <section className="notes">
+      <section className="notes-main">
         <div className="notes_list">
           {notes.map((note) => (
             <NoteItem
