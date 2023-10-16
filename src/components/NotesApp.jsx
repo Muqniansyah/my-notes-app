@@ -43,6 +43,7 @@ class NotesApp extends React.Component {
     });
   }
 
+  // event arsip
   onMoveDataHandler(id) {
     const updateNotes = this.state.notes
       .filter((note) => note.id === id)
